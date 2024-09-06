@@ -5,6 +5,21 @@ modules:
     install:
       - firefox
       - hyprland
+      - hyprland
+      - xdg-desktop-portal-hyprland
+      - hyprland-contrib
+      - hyprland-plugins
+      - hyprland-autoname-workspaces
+      - hyprpaper
+      - hypridle
+      - hyprlock
+      - hyprshot
+      - waybar-git
+      - cliphist
+      - nwg-clipman
+      - hyprdim
+      - pyprland
+
     remove:
       # example: removing firefox (in favor of the flatpak)
       # "firefox" is the main package, "firefox-langpacks" is a dependency
