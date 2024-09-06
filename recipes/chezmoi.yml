@@ -1,0 +1,3 @@
+modules:
+  - type: chezmoi
+    repository: "https://github.com/azmodude/dotfiles"

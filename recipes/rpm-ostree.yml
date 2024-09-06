@@ -1,0 +1,12 @@
+modules:
+  - type: rpm-ostree
+    repos:
+      - https://copr.fedorainfracloud.org/coprs/solopasha/hyprland/repo/fedora-%OS_VERSION%/solopasha-hyprland-fedora-%OS_VERSION%.repo"
+    install:
+      - firefox
+      - hyprland
+    remove:
+      # example: removing firefox (in favor of the flatpak)
+      # "firefox" is the main package, "firefox-langpacks" is a dependency
+      # - firefox
+      # - firefox-langpacks # also remove firefox dependency (not required for all packages, this is a special case)

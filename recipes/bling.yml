@@ -1,0 +1,4 @@
+modules:
+  - type: bling
+    install:
+      - 1password
