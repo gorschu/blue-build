@@ -19,6 +19,7 @@ modules:
       - nwg-clipman
       - hyprdim
       - pyprland
+      - kanshi
 
     remove:
       # example: removing firefox (in favor of the flatpak)
