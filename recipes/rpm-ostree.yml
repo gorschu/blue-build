@@ -6,12 +6,12 @@ modules:
       - gdisk
       - parted
       - firefox
+      - kitty
       - hyprland
-      - hyprland
-      - xdg-desktop-portal-hyprland
       - hyprland-contrib
       - hyprland-plugins
       - hyprland-autoname-workspaces
+      - xdg-desktop-portal-hyprland
       - hyprpaper
       - hypridle
       - hyprlock
