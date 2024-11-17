@@ -1,5 +1,6 @@
 modules:
   - type: chezmoi
     repository: "https://github.com/azmodude/dotfiles"
-    # disable init since my dotfiles require encryption
-    disable_init: true
+    branch: main
+    file_conflict_policy: skip
+    disable_init: false
