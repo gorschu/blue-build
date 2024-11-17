@@ -1,0 +1,6 @@
+modules:
+  - type: systemd
+    system:
+      disabled:
+        - pcscd.service
+        - pcscd.socket
