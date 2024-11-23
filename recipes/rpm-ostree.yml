@@ -27,6 +27,9 @@ modules:
       - hyprdim
       - pyprland
       - kanshi
+      - fuzzel
+      - NetworkManager-tui
+      - network-manager-applet
 
     remove:
       # example: removing firefox (in favor of the flatpak)
