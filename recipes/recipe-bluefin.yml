@@ -1,0 +1,24 @@
+# image will be published to ghcr.io/<user>/<name>
+name: bluefin-dx-azmo
+# description will be included in the image's metadata
+description: BlueBuild modified version of ublue's bluefin-dx
+alt-tags:
+  - stable
+
+# the base image to build on top of (FROM) and the version tag to use
+base-image: ghcr.io/ublue-os/bluefin-dx
+image-version: stable
+
+# module configuration, executed in order
+# you can include multiple instances of the same module
+modules:
+  - from-file: files.yml
+  - from-file: rpm-ostree.yml
+  - from-file: flatpaks.yml
+  - from-file: bling.yml
+  - from-file: chezmoi.yml
+  - from-file: systemd.yml
+  - from-file: fonts.yml
+
+  - type: signing # this sets up the proper policy & signing files for signed images to work fully
+
