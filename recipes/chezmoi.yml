@@ -2,5 +2,5 @@ modules:
   - type: chezmoi
     repository: "https://github.com/azmodude/dotfiles"
     branch: main
-    file_conflict_policy: skip
-    disable_init: false
+    file-conflict-policy: skip
+    disable-init: false
