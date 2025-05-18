@@ -15,6 +15,7 @@ modules:
       - kitty
       - wezterm
       - hyprland
+      - uwsm
       - hyprland-contrib
       - hyprland-plugins
       - hyprland-autoname-workspaces
@@ -23,7 +24,10 @@ modules:
       - hypridle
       - hyprlock
       - hyprshot
-      - waybar-git
+      - hyprsysteminfo
+      - hyprpanel
+      - hyprnome
+      - swww
       - cliphist
       - nwg-clipman
       - hyprdim
