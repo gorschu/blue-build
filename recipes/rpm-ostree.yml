@@ -31,8 +31,6 @@ modules:
       - cliphist
       - nwg-clipman
       - hyprdim
-      - pyprland
-      - kanshi
       - fuzzel
       - NetworkManager-tui
       - network-manager-applet
