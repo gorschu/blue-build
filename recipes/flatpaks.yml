@@ -10,6 +10,7 @@ modules:
         - com.google.Chrome
         - com.vivaldi.Vivaldi
         - com.hamrick.VueScan
+        - io.github.pwr_solaar.solaar
         # - org.mozilla.firefox
         # - org.gnome.Loupe
         # - one.ablaze.floorp//lightning # This is an example of flatpak which has multiple branches in selection (flatpak//branch).
