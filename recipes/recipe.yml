@@ -15,6 +15,7 @@ modules:
   - from-file: files.yml
   - from-file: rpm-ostree.yml
   - from-file: flatpaks.yml
+  - from-file: determinate-nix.yml
   - from-file: bling.yml
   - from-file: chezmoi.yml
   - from-file: systemd.yml
