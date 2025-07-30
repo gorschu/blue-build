@@ -1,0 +1,47 @@
+modules:
+  - type: dnf
+    repos:
+      files:
+        add:
+          - https://www.scootersoftware.com/files/scootersoftware.repo
+          - zrepl.repo
+        remove:
+          - terra*.repo
+      copr:
+        enable:
+          - solopasha/hyprland
+          - wezfurlong/wezterm-nightly
+      keys:
+        - https://www.scootersoftware.com/RPM-GPG-KEY-scootersoftware
+    install:
+      packages:
+        # system
+        - gdisk
+        - parted
+        - btrbk
+        - zrepl
+        # gui
+        - firefox
+        - bcompare
+        - kitty
+        - wezterm
+        - hyprland
+        - uwsm
+        - hyprland-contrib
+        - hyprland-plugins
+        - hyprland-autoname-workspaces
+        - xdg-desktop-portal-hyprland
+        - hyprpaper
+        - hypridle
+        - hyprlock
+        - hyprshot
+        - hyprsysteminfo
+        - hyprpanel
+        - hyprnome
+        - swww
+        - cliphist
+        - nwg-clipman
+        - hyprdim
+        - fuzzel
+        - NetworkManager-tui
+        - network-manager-applet

@@ -13,8 +13,7 @@ image-version: stable
 # you can include multiple instances of the same module
 modules:
   - from-file: files.yml
-  - from-file: remove-terra-repos.yml
-  - from-file: rpm-ostree.yml
+  - from-file: dnf.yml
   - from-file: flatpaks.yml
   - from-file: bling.yml
   - from-file: chezmoi.yml
