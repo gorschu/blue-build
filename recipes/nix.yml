@@ -1,0 +1,4 @@
+modules:
+  - type: script
+    snippets:
+      - "mkdir -p /var/home/nix && ln -sf /var/home/nix /nix" # ensure we have a root-level /nix directory
