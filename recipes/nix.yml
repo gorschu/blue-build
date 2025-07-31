@@ -1,0 +1,4 @@
+modules:
+  - type: script
+    snippets:
+      - "mkdir -p /nix"
