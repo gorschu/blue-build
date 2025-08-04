@@ -2,8 +2,8 @@ modules:
   - type: default-flatpaks
     configurations:
       - notify: true # Send notification after install/uninstall is finished (true/false)
-      - scope: user
-      - install:
+        scope: user
+        install:
           - com.google.Chrome
           - com.vivaldi.Vivaldi
           - com.hamrick.VueScan
