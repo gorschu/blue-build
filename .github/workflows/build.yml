@@ -19,7 +19,7 @@ jobs:
       packages: write
       id-token: write
     strategy:
-      fail-fast: false # stop GH from cancelling all matrix builds if one fails
+      fail-fast: true # stop GH from cancelling all matrix builds if one fails
       matrix:
         recipe:
           - recipe-aurora.yml
@@ -33,7 +33,6 @@ jobs:
           cosign_private_key: ${{ secrets.SIGNING_SECRET }}
           registry_token: ${{ github.token }}
           pr_event_number: ${{ github.event.number }}
-          rechunk: false
-
+          build_opts: "--compression-format zstd"
           # enabled by default, disable if your image is small and you want faster builds
           maximize_build_space: false
