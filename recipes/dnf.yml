@@ -5,12 +5,11 @@ modules:
         add:
           - https://www.scootersoftware.com/files/scootersoftware.repo
           - zrepl.repo
-        remove:
-          - terra*.repo
       copr:
         enable:
           - solopasha/hyprland
           - wezfurlong/wezterm-nightly
+          - scottames/ghostty
       keys:
         - https://www.scootersoftware.com/RPM-GPG-KEY-scootersoftware
     install:
@@ -25,6 +24,7 @@ modules:
         - bcompare
         - kitty
         - wezterm
+        - ghostty
         - hyprland
         - uwsm
         - hyprland-contrib
@@ -36,7 +36,9 @@ modules:
         - hyprlock
         - hyprshot
         - hyprsysteminfo
-        - hyprpanel
+        # - hyprpanel
+        - mako
+        - waybar
         - hyprnome
         - swww
         - cliphist

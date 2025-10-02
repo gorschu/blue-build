@@ -3,4 +3,4 @@ modules:
     repository: "https://github.com/azmodude/dotfiles"
     branch: main
     file-conflict-policy: skip
-    disable-init: false
+    disable-init: true
