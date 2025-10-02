@@ -9,4 +9,3 @@ modules:
           - com.hamrick.VueScan
           - io.github.pwr_solaar.solaar
           - de.haeckerfelix.Shortwave
-          - app.ytmdesktop.ytmdesktop
