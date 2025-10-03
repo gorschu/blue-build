@@ -2,5 +2,33 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
     "config:best-practices"
-  ]
+  ],
+  "prConcurrentLimit": 3,
+  "prHourlyLimit": 2,
+  "labels": [
+    "dependencies"
+  ],
+  "reviewersFromCodeOwners": true,
+  "assigneesFromCodeOwners": true,
+  "packageRules": [
+    {
+      "description": "Group docker minor/major updates",
+      "matchManagers": [
+        "dockerfile"
+      ],
+      "matchUpdateTypes": [
+        "minor",
+        "major"
+      ],
+      "groupName": "container-images",
+      "semanticCommitType": "feat",
+      "semanticCommitScope": "deps",
+      "minimumReleaseAge": "3 days"
+    }
+  ],
+  "vulnerabilityAlerts": {
+    "semanticCommitType": "fix",
+    "semanticCommitScope": "security"
+  },
+  "osvVulnerabilityAlerts": true
 }
