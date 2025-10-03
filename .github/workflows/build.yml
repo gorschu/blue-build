@@ -37,6 +37,5 @@ jobs:
           registry_token: ${{ github.token }}
           pr_event_number: ${{ github.event.number }}
           build_opts: "--compression-format zstd --build-driver podman"
-          use_cache: true
           # enabled by default, disable if your image is small and you want faster builds
           maximize_build_space: false
