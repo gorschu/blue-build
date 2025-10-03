@@ -12,14 +12,23 @@ default:
 # Start local OCI registry
 registry-start:
     #!/usr/bin/env bash
-    if podman ps --format '{{{{.Names}}}}' | grep -q "{{registry_name}}"; then
-        echo "Registry already running"
-    else
-        echo "Starting local registry on port {{registry_port}}..."
-        podman run -d --replace --name {{registry_name}} \
-            -p {{registry_port}}:5000 \
-            docker.io/library/registry:2
-    fi
+    podman start {{registry_name}} 2>/dev/null || \
+    podman run -d --name {{registry_name}} \
+        -p {{registry_port}}:5000 \
+        --restart=always \
+        --health-cmd='wget -q --spider http://127.0.0.1:5000/v2/ || exit 1' \
+        --health-interval=5s \
+        --health-retries=3 \
+        docker.io/library/registry:2
+    echo "Waiting for registry to be ready..."
+    for i in {1..30}; do
+        if podman healthcheck run {{registry_name}} >/dev/null 2>&1; then
+            echo "Registry is healthy"
+            exit 0
+        fi
+        sleep 1
+    done
+    echo "Warning: Registry healthcheck timeout"
 
 # Stop local OCI registry
 registry-stop:
@@ -27,15 +36,17 @@ registry-stop:
     podman rm {{registry_name}} || true
 
 # Build and push an image (recipe can be 'aurora' or 'bluefin', registry defaults to local)
-build-push recipe registry=local_registry:
+build-push recipe registry="local":
     #!/usr/bin/env bash
-    if [ "{{registry}}" = "local_registry" ]; then
+    if [ "{{registry}}" = "local" ]; then
         just registry-start
         REGISTRY="{{local_registry}}"
+        CACHE_OPT="--cache-layers"
     else
         REGISTRY="{{registry}}"
+        CACHE_OPT=""
     fi
-    bluebuild build --push --cache-layers --quiet --registry "$REGISTRY" --registry-namespace gorschu --compression-format zstd recipes/recipe-{{recipe}}.yml --build-driver podman
+    bluebuild build --push $CACHE_OPT --registry "$REGISTRY" --registry-namespace gorschu --compression-format zstd recipes/recipe-{{recipe}}.yml --build-driver podman
 
 # Install VM from ISO using virt-install
 vm-install:
