@@ -12,6 +12,11 @@ on:
       - "cosign.pub"
 
   pull_request:
+    paths:
+      - "recipes/**"
+      - "files/**"
+      - "modules/**"
+      - "cosign.pub"
   workflow_dispatch: # allow manually triggering builds
 jobs:
   bluebuild:
