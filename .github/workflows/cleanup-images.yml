@@ -1,0 +1,43 @@
+name: Cleanup Container Images
+
+on:
+  schedule:
+    # Run daily at 7 AM UTC (1 hour after the build completes)
+    - cron: "0 7 * * *"
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Dry run mode (only show what would be deleted)"
+        required: false
+        default: true
+        type: boolean
+
+jobs:
+  cleanup-images:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      - name: Cleanup Bluefin images
+        uses: snok/container-retention-policy@v3.0.1
+        with:
+          image-names: "bluefin-dx-gorschu"
+          cut-off: 3 days
+          keep-n-most-recent: 1
+          tag-selection: tagged
+          account: user
+          token: ${{ secrets.GITHUB_TOKEN }}
+          dry-run: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.dry_run == 'true' }}
+
+      - name: Cleanup Aurora images
+        uses: snok/container-retention-policy@v3.0.1
+        with:
+          image-names: "aurora-dx-gorschu"
+          cut-off: 3 days
+          keep-n-most-recent: 1
+          tag-selection: tagged
+          account: user
+          token: ${{ secrets.GITHUB_TOKEN }}
+          dry-run: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.dry_run == 'true' }}
