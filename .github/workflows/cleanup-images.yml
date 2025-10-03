@@ -21,7 +21,7 @@ jobs:
 
     steps:
       - name: Cleanup Bluefin images
-        uses: snok/container-retention-policy@v3.0.1
+        uses: snok/container-retention-policy@3b0972b2276b171b212f8c4efbca59ebba26eceb # v3.0.1
         with:
           image-names: "bluefin-dx-gorschu"
           cut-off: 3 days
@@ -32,7 +32,7 @@ jobs:
           dry-run: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.dry_run == 'true' }}
 
       - name: Cleanup Aurora images
-        uses: snok/container-retention-policy@v3.0.1
+        uses: snok/container-retention-policy@3b0972b2276b171b212f8c4efbca59ebba26eceb # v3.0.1
         with:
           image-names: "aurora-dx-gorschu"
           cut-off: 3 days
